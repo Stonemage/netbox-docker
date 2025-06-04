@@ -1,0 +1,24 @@
+version: '3.4'
+services:
+  netbox:
+    ports:
+    - 8080:8080
+    volumes:
+    - /mnt/dock-nb_conf:/etc/netbox/config:z,ro
+    - /mnt/dock-nb_media:/opt/netbox/netbox/media:z,rw
+    - /mnt/dock-nb_reports:/opt/netbox/netbox/reports:z,rw
+    - /mnt/dock-nb_scripts:/opt/netbox/netbox/scripts:z,rw
+    healthcheck:
+      retries: 15
+  netbox-worker:
+    volumes:
+    - /mnt/dock-nb_conf:/etc/netbox/config:z,ro
+    - /mnt/dock-nb_media:/opt/netbox/netbox/media:z,rw
+    - /mnt/dock-nb_reports:/opt/netbox/netbox/reports:z,rw
+    - /mnt/dock-nb_scripts:/opt/netbox/netbox/scripts:z,rw
+  netbox-housekeeping:
+    volumes:
+    - /mnt/dock-nb_conf:/etc/netbox/config:z,ro
+    - /mnt/dock-nb_media:/opt/netbox/netbox/media:z,rw
+    - /mnt/dock-nb_reports:/opt/netbox/netbox/reports:z,rw
+    - /mnt/dock-nb_scripts:/opt/netbox/netbox/scripts:z,rw
