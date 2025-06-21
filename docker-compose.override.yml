@@ -4,7 +4,6 @@ services:
     container_name: netbox
     ports:
     - 8080:8080
-    network_mode: bridge
     volumes:
     - /mnt/dock-nb_conf:/etc/netbox/config:z,ro
     - /mnt/dock-nb_media:/opt/netbox/netbox/media:z,rw
@@ -14,7 +13,6 @@ services:
       retries: 15
   netbox-worker:
     container_name: netbox-worker
-    network_mode: bridge
     volumes:
     - /mnt/dock-nb_conf:/etc/netbox/config:z,ro
     - /mnt/dock-nb_media:/opt/netbox/netbox/media:z,rw
@@ -22,7 +20,6 @@ services:
     - /mnt/dock-nb_scripts:/opt/netbox/netbox/scripts:z,rw
   netbox-housekeeping:
     container_name: netbox-housekeeping
-    network_mode: bridge
     volumes:
     - /mnt/dock-nb_conf:/etc/netbox/config:z,ro
     - /mnt/dock-nb_media:/opt/netbox/netbox/media:z,rw
