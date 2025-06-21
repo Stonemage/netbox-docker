@@ -4,6 +4,7 @@ services:
     container_name: netbox
     ports:
     - 8080:8080
+    network_mode: bridge
     volumes:
     - /mnt/dock-nb_conf:/etc/netbox/config:z,ro
     - /mnt/dock-nb_media:/opt/netbox/netbox/media:z,rw
